@@ -4,7 +4,7 @@ const express = require('express');
 const pg = require('pg');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const fs = requires('fs');
+const fs = require('fs');
 
 dotenv.config();
 
