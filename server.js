@@ -4,11 +4,18 @@ const express = require('express');
 const pg = require('pg');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const fs = requires('fs');
 
 dotenv.config();
 
 const app = express();
-const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL, // URL do banco de dados
+  ssl: {
+    rejectUnauthorized: true, // Verificar se o certificado é confiável
+    ca: fs.readFileSync('ca.pem').toString() // Caminho para o certificado
+  }
+});
 
 app.use(cors());
 app.use(express.json());
