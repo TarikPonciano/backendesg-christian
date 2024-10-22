@@ -12,7 +12,7 @@ const app = express();
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, // URL do banco de dados
   ssl: {
-    rejectUnauthorized: false, // Verificar se o certificado é confiável
+    rejectUnauthorized: true, // Verificar se o certificado é confiável
     ca: `-----BEGIN CERTIFICATE-----
 MIIEQTCCAqmgAwIBAgIUVAPX5k9ubXpZn2ITBDkb2FRaPaAwDQYJKoZIhvcNAQEM
 BQAwOjE4MDYGA1UEAwwvZWYxNjc2ZGMtZjMwMi00MmY4LThhNDktNmQ1Y2U2YzJl
